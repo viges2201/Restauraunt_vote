@@ -20,21 +20,21 @@ import static restaurant.RestaurantTestData.*;
 import static restaurant.TestUtil.readFromJson;
 import static restaurant.model.AbstractBaseEntity.START_SEQ;
 
-class RestorantRestControllerTest extends AbstractControllerTest {
+class RestaurantRestControllerTest extends AbstractControllerTest {
 
     private static final String REST_URL = RestaurantRestController.REST_URL + '/';
 
     @Autowired
     private RestaurantService service;
 
-    @Test
+   /* @Test
     void testGet() throws Exception {
         mockMvc.perform(get(REST_URL + USER_1_RESTAURANT_ID ))
                 .andExpect(status().isOk())
                 .andDo(print())
                 .andExpect(content().contentTypeCompatibleWith(MediaType.APPLICATION_JSON))
                 .andExpect(contentJson(USER_RESTAURANT_1));
-    }
+    }*/
 
     @Test
     void testDelete() throws Exception {
