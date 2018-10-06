@@ -49,6 +49,7 @@ class RestaurantRestControllerTest extends AbstractControllerTest {
 
         mockMvc.perform(put(REST_URL + USER_1_RESTAURANT_ID).contentType(MediaType.APPLICATION_JSON)
                 .content(JsonUtil.writeValue(updated)))
+                .andDo(print())
                 .andExpect(status().isOk());
 
         assertMatch(service.get(USER_1_RESTAURANT_ID, START_SEQ), updated);
