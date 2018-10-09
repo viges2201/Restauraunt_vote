@@ -8,12 +8,15 @@ import org.springframework.util.Assert;
 import restaurant.repository.UserRepositoryImpl;
 import restaurant.util.NotFoundException;
 
+import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.util.List;
 
 @Service
 public class UserServiceImpl implements UserService {
 
     private final UserRepositoryImpl repository;
+    private static final LocalTime BEFORE_TIME = LocalTime.of(11, 00);
 
     @Autowired
     public UserServiceImpl(UserRepositoryImpl repository) {
@@ -59,12 +62,16 @@ public class UserServiceImpl implements UserService {
     @Transactional
     @Override
     public void vote(int idRestaurant, int idUser) {
+        LocalDateTime timeNow = LocalDateTime.now();
+        if (timeNow.toLocalTime().isAfter(BEFORE_TIME) || repository.getProxy(idUser).isEnabled()) return;
+
         repository.voting(idRestaurant);
         repository.isVoted(idUser);
     }
 
+    @Transactional
     @Override
-    public void voteDump() {
-        repository.voteDump();
+    public void enableFalse() {
+        repository.enableFalse();
     }
 }

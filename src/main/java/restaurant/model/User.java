@@ -17,8 +17,8 @@ public class User extends AbstractNamedEntity {
     @Column(name = "password", nullable = false)
     private String password;
 
-    @Column(name = "enabled", nullable = false, columnDefinition = "bool default true")
-    private boolean enabled = true;
+    @Column(name = "enabled", nullable = false, columnDefinition = "bool default false")
+    private boolean enabled = false;
 
     @Enumerated(EnumType.STRING)
     @CollectionTable(name = "user_roles", joinColumns = @JoinColumn(name = "user_id"))

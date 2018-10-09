@@ -17,4 +17,6 @@ public interface RestaurantService {
     Restaurant create(Restaurant restaurant, int userId);
 
     Restaurant getWithUser(int id, int userId);
+
+    void voteDump();
 }

@@ -1,0 +1,452 @@
+{
+	"info": {
+		"_postman_id": "d7622974-a5d9-4691-8c81-34bfa878b8fc",
+		"name": "Restaurant",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "getAllUsers",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:8080/rest/admin/users",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"rest",
+						"admin",
+						"users"
+					]
+				},
+				"description": "Get all users\nhttp://localhost:8080/rest/admin/users"
+			},
+			"response": []
+		},
+		{
+			"name": "getAdmin",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:8080/rest/admin/users/100001",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"rest",
+						"admin",
+						"users",
+						"100001"
+					]
+				},
+				"description": "http://localhost:8080/rest/admin/users/100001"
+			},
+			"response": []
+		},
+		{
+			"name": "getByEmailAdmin",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:8080/rest/admin/users/by?email=admin@gmail.com",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"rest",
+						"admin",
+						"users",
+						"by"
+					],
+					"query": [
+						{
+							"key": "email",
+							"value": "admin@gmail.com"
+						}
+					]
+				},
+				"description": "http://localhost:8080/rest/admin/users/by?email=admin@gmail.com"
+			},
+			"response": []
+		},
+		{
+			"name": "createNewUser",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"newAdmin\",\n    \"email\": \"newAdminr@gmail.com\",\n    \"password\": \"newAdminr\",\n    \"enabled\": true,\n    \"roles\": [\n        \"ROLE_ADMIN\",\n        \"ROLE_USER\"\n    ],\n    \"restaurants\": null\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/rest/admin/users",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"rest",
+						"admin",
+						"users"
+					]
+				},
+				"description": "http://localhost:8080/rest/admin/users"
+			},
+			"response": []
+		},
+		{
+			"name": "deleteUserById",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:8080/rest/admin/users/100000",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"rest",
+						"admin",
+						"users",
+						"100000"
+					]
+				},
+				"description": "http://localhost:8080/rest/admin/users/100000"
+			},
+			"response": []
+		},
+		{
+			"name": "updateUserFromAdmin",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\": 100009,\n        \"name\": \"newFakeName\",\n        \"email\": \"newUser@gmail.com\",\n        \"password\": \"newUser\",\n        \"enabled\": false,\n        \"roles\": [\n        \t\"ROLE_ADMIN\",\n            \"ROLE_USER\"\n        ],\n        \"restaurants\": null\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/rest/admin/users/100009",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"rest",
+						"admin",
+						"users",
+						"100009"
+					]
+				},
+				"description": "http://localhost:8080/rest/admin/users/100009"
+			},
+			"response": []
+		},
+		{
+			"name": "getUserProfile",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8080/rest/profile/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"rest",
+						"profile",
+						""
+					]
+				},
+				"description": "http://localhost:8080/rest/profile/"
+			},
+			"response": []
+		},
+		{
+			"name": "UserVoitng",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:8080/rest/profile/100000/restaurant/100005",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"rest",
+						"profile",
+						"100000",
+						"restaurant",
+						"100005"
+					]
+				},
+				"description": "http://localhost:8080/rest/profile"
+			},
+			"response": []
+		},
+		{
+			"name": "updateUserProfile",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\": 100009,\n        \"name\": \"newUserProfile\",\n        \"email\": \"newUserProfile@gmail.com\",\n        \"password\": \"newUser\",\n        \"enabled\": false,\n        \"roles\": [\n        \t\"ROLE_ADMIN\",\n            \"ROLE_USER\"\n        ],\n        \"restaurants\": null\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/rest/profile",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"rest",
+						"profile"
+					]
+				},
+				"description": "http://localhost:8080/rest/profile"
+			},
+			"response": []
+		},
+		{
+			"name": "getAllRestaurant",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:8080/rest/profile/restaurant",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"rest",
+						"profile",
+						"restaurant"
+					]
+				},
+				"description": "http://localhost:8080/rest/profile/restaurant"
+			},
+			"response": []
+		},
+		{
+			"name": "getRestaurantById",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:8080/rest/profile/restaurant/100005",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"rest",
+						"profile",
+						"restaurant",
+						"100005"
+					]
+				},
+				"description": "http://localhost:8080/rest/profile/restaurant/100005"
+			},
+			"response": []
+		},
+		{
+			"name": "deleteRestaurantById",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:8080/rest/profile/restaurant/100005",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"rest",
+						"profile",
+						"restaurant",
+						"100005"
+					]
+				},
+				"description": "http://localhost:8080/rest/profile/restaurant/100005"
+			},
+			"response": []
+		},
+		{
+			"name": "updateRestaurant",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n \"id\": 100005,\n    \"name\": \"RefreshRest\",\n    \"dish\": \"Fish\",\n    \"price\": 126,\n    \"vote\": 4,\n    \"user\": null\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/rest/profile/restaurant/100005",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"rest",
+						"profile",
+						"restaurant",
+						"100005"
+					]
+				},
+				"description": "http://localhost:8080/rest/profile/restaurant/100005"
+			},
+			"response": []
+		},
+		{
+			"name": "createNewRestaurant",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"new Restaurant\",\n    \"dish\": \"pizza\",\n    \"price\": 5686,\n    \"vote\": 10,\n    \"user\": null\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/rest/profile/restaurant",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"rest",
+						"profile",
+						"restaurant"
+					]
+				},
+				"description": "http://localhost:8080/rest/profile/restaurant"
+			},
+			"response": []
+		},
+		{
+			"name": "voteDump",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8080/rest/admin/users/refresh",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"rest",
+						"admin",
+						"users",
+						"refresh"
+					]
+				},
+				"description": "http://localhost:8080/rest/admin/users/refresh"
+			},
+			"response": []
+		},
+		{
+			"name": "startVote",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8080/rest/admin/users/start",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"rest",
+						"admin",
+						"users",
+						"start"
+					]
+				},
+				"description": "http://localhost:8080/rest/admin/users/start"
+			},
+			"response": []
+		}
+	]
+}

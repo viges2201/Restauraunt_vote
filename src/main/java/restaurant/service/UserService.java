@@ -22,5 +22,5 @@ public interface UserService {
 
     void  vote(int idRestaurant, int idUser);
 
-    void voteDump();
+    void enableFalse();
 }

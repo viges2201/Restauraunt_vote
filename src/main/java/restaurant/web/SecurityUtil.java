@@ -15,7 +15,4 @@ public class SecurityUtil {
         SecurityUtil.id = id;
     }
 
-   /* public static int authUserCaloriesPerDay() {
-        return DEFAULT_CALORIES_PER_DAY;
-    }*/
 }

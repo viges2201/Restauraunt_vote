@@ -1,11 +1,14 @@
 package restaurant.repository;
 
+import restaurant.model.AbstractBaseEntity;
 import restaurant.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+
+import static restaurant.web.SecurityUtil.authUserId;
 
 @Repository
 public class UserRepositoryImpl {
@@ -30,6 +33,10 @@ public class UserRepositoryImpl {
         return crudRepository.findById(id).orElse(null);
     }
 
+    public User getProxy(int id){
+        return crudRepository.getOne(id);
+    }
+
     public User getByEmail(String email) {
         return crudRepository.getByEmail(email);
     }
@@ -41,24 +48,18 @@ public class UserRepositoryImpl {
     public User getWithRestaurant(int id) {
         return crudRepository.getWithRestaurant(id);
     }
-    /***
-     * Голосовать
-     */
 
-    public void voting(int id){
+    public void voting(int id) {
         crudRepository.voting(id);
-    };
-    /**
-     * Проголосовал
-     */
-    public void isVoted(int id){
-        crudRepository.isVoted(id);
-    };
-    /**
-     * Сбросить голоса
-     */
-    public void voteDump(){
-        crudRepository.voteDump();
-    };
+    }
+
+    public void isVoted(int id) {
+        crudRepository.enableTrue(id);
+    }
+
+    public void enableFalse() {
+        crudRepository.enableFalse();
+    }
+
 
 }

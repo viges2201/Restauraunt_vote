@@ -34,14 +34,18 @@ public interface CrudUserRepository extends JpaRepository<User, Integer> {
     @Query("SELECT u FROM User u JOIN FETCH u.restaurants WHERE u.id=?1")
     User getWithRestaurant(int id);
 
-    @Query("UPDATE Restaurant r SET r.vote=r.vote+1 WHERE r.id=:id")
+    @Modifying
+    @Query("UPDATE Restaurant r SET r.vote=r.vote+1 WHERE r.id=?1")
     void voting(int id);
 
-    @Query("UPDATE User u SET u.enabled=true WHERE u.id=:id")
-    void isVoted(int id);
+    @Modifying
+    @Query("UPDATE User u SET u.enabled=true WHERE u.id=?1")
+    void enableTrue(int id);
 
-    @Query("UPDATE Restaurant r SET r.vote=0")
-    void voteDump();
+    @Modifying
+    @Query("UPDATE User u SET u.enabled=false")
+    void enableFalse();
 
-
+    @Override
+    User getOne(Integer integer);
 }

@@ -9,7 +9,7 @@ create table users (
   id               INTEGER PRIMARY KEY DEFAULT nextval('global_seq'),
   name     varchar(255)        not null,
   email    varchar(255)        not null,
-  enabled  bool default true   not null,
+  enabled  bool default false   not null,
   password varchar(255)        not null
 );
 CREATE UNIQUE INDEX users_unique_email_idx

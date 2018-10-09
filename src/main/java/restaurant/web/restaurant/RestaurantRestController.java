@@ -8,8 +8,6 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import restaurant.model.Restaurant;
 
 import java.net.URI;
-import java.time.LocalDate;
-import java.time.LocalTime;
 import java.util.List;
 
 @RestController
@@ -43,8 +41,8 @@ public class RestaurantRestController extends AbstractRestaurantController {
     }
 
     @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<Restaurant> createWithLocation(@RequestBody Restaurant meal) {
-        Restaurant created = super.create(meal);
+    public ResponseEntity<Restaurant> createWithLocation(@RequestBody Restaurant restaurant) {
+        Restaurant created = super.create(restaurant);
 
         URI uriOfNewResource = ServletUriComponentsBuilder.fromCurrentContextPath()
                 .path(REST_URL + "/{id}")

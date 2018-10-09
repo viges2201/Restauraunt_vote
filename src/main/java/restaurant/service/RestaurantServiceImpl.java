@@ -48,4 +48,9 @@ public class RestaurantServiceImpl implements RestaurantService {
     public Restaurant getWithUser(int id, int userId) {
         return repository.getWithUser(id, userId);
     }
+
+    @Override
+    public void voteDump() {
+        repository.voteDump();
+    }
 }

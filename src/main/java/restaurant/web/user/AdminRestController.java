@@ -17,13 +17,6 @@ import java.util.List;
 public class AdminRestController extends AbstractUserController {
     public static final String REST_URL = "/rest/admin/users";
 
-    private final UserService service;
-
-    @Autowired
-    public AdminRestController(UserService service) {
-        this.service = service;
-    }
-
     @Override
     @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
     public List<User> getAll() {
@@ -39,9 +32,6 @@ public class AdminRestController extends AbstractUserController {
     @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<User> createWithLocation(@RequestBody User user) {
         User created = super.create(user);
-
-//        HttpHeaders httpHeaders = new HttpHeaders();
-//        httpHeaders.setLocation(uriOfNewResource);
 
         URI uriOfNewResource = ServletUriComponentsBuilder.fromCurrentContextPath()
                 .path(REST_URL + "/{id}")
@@ -70,8 +60,15 @@ public class AdminRestController extends AbstractUserController {
     }
 
     @Override
-    @PutMapping(value = "/refresh", consumes = MediaType.APPLICATION_JSON_VALUE)
-    public void voteDump() {
-        super.voteDump();
+    @GetMapping(value = "/refresh")
+    public String voteDump() {
+        return super.voteDump();
+    }
+
+    @Override
+    @GetMapping(value = "/start")
+    public String startVoting() {
+        log.info("StartVoting");
+        return super.startVoting();
     }
 }

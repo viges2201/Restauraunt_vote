@@ -2,11 +2,9 @@ package restaurant;
 
 import org.springframework.test.web.servlet.ResultMatcher;
 import restaurant.model.Restaurant;
-import restaurant.model.User;
 
 import java.util.Arrays;
 
-import static java.time.LocalDateTime.of;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static restaurant.model.AbstractBaseEntity.START_SEQ;

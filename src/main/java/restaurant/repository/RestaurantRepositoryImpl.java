@@ -23,6 +23,7 @@ public class RestaurantRepositoryImpl {
         restaurant.setUser(crudUserRepository.getOne(userId));
         return crudRestaurantRepository.save(restaurant);
     }
+
     public boolean delete(int id, int userId) {
         return crudRestaurantRepository.delete(id, userId) != 0;
     }
@@ -39,5 +40,9 @@ public class RestaurantRepositoryImpl {
 
     public Restaurant getWithUser(int id, int userId) {
         return crudRestaurantRepository.getWithUser(id, userId);
+    }
+
+    public void voteDump() {
+        crudRestaurantRepository.voteDump();
     }
 }

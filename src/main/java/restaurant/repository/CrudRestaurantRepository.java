@@ -26,4 +26,9 @@ public interface CrudRestaurantRepository extends JpaRepository<Restaurant, Inte
 
     @Query("SELECT r FROM Restaurant r JOIN FETCH r.user WHERE r.id = ?1 and r.user.id = ?2")
     Restaurant getWithUser(int id, int userId);
+
+    @Modifying
+    @Transactional
+    @Query("UPDATE Restaurant r SET r.vote=0")
+    void voteDump();
 }

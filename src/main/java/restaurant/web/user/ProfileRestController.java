@@ -3,6 +3,7 @@ package restaurant.web.user;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
+import restaurant.model.Restaurant;
 import restaurant.model.User;
 
 import static restaurant.web.SecurityUtil.authUserId;
@@ -25,8 +26,8 @@ public class ProfileRestController extends AbstractUserController {
     }
 
     @Override
-    @PutMapping(value = "/{idUser}/restaurant/{idRestaurant}", consumes = MediaType.APPLICATION_JSON_VALUE)
-    public void vote(@PathVariable("idRestaurant") int idRestaurant, @PathVariable("idUser") int idUser) {
-        super.vote(idRestaurant, idUser);
+    @GetMapping(value = "/{idUser}/restaurant/{idRestaurant}", produces = MediaType.APPLICATION_JSON_VALUE)
+    public Restaurant vote(@PathVariable("idRestaurant") int idRestaurant, @PathVariable("idUser") int idUser) {
+        return super.vote(idRestaurant,idUser);
     }
 }

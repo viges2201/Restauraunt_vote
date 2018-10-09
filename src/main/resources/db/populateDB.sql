@@ -20,3 +20,5 @@ INSERT INTO restaurants (name, dish, price, vote,user_id) VALUES
   ('fourRest','pureshka',34356,2,100000),
   ('fiveRest','AdminKotletka',34311,3,100001),
   ('sixRest','AdminGrecha',34476,9,100001);
+
+
