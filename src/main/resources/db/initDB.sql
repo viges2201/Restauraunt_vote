@@ -1,4 +1,4 @@
-DROP TABLE IF EXISTS user_roles;
+/*DROP TABLE IF EXISTS user_roles;
 DROP TABLE IF EXISTS restaurants;
 DROP TABLE IF EXISTS users;
 DROP SEQUENCE IF EXISTS global_seq;
@@ -32,5 +32,5 @@ CREATE TABLE restaurants (
   vote       INT,
   FOREIGN KEY (user_id) REFERENCES users (id) ON DELETE CASCADE
 );
-CREATE UNIQUE INDEX restaurants_unique_user_datetime_idx
-  ON restaurants (user_id, name);
+CREATE UNIQUE INDEX restaurants_unique_user
+  ON restaurants (user_id, name);*/

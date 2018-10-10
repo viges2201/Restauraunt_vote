@@ -27,7 +27,7 @@ class RestaurantRestControllerTest extends AbstractControllerTest {
     @Autowired
     private RestaurantService service;
 
-   /* @Test
+    /*@Test
     void testGet() throws Exception {
         mockMvc.perform(get(REST_URL + USER_1_RESTAURANT_ID ))
                 .andExpect(status().isOk())
