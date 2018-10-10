@@ -2,6 +2,7 @@ package restaurant.web.user;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.http.MediaType;
+import org.springframework.test.web.servlet.MvcResult;
 import org.springframework.test.web.servlet.ResultActions;
 import restaurant.TestUtil;
 import restaurant.model.Role;
@@ -78,11 +79,35 @@ public class AdminRestControllerTest extends AbstractControllerTest {
         assertMatch(returned, expected);
         assertMatch(userService.getAll(), ADMIN, expected, USER);
     }
+
     @Test
     void testGetAll() throws Exception {
         TestUtil.print(mockMvc.perform(get(REST_URL_TEST))
                 .andExpect(status().isOk())
                 .andExpect(content().contentTypeCompatibleWith(MediaType.APPLICATION_JSON))
                 .andExpect(contentJson(ADMIN, USER)));
+    }
+
+    @Test
+    void voteDump() throws Exception {
+        MvcResult result = mockMvc.perform(get(REST_URL_TEST + "refresh"))
+                .andExpect(status().isOk())
+                .andDo(print())
+                .andExpect(content().contentTypeCompatibleWith(MediaType.APPLICATION_JSON))
+                .andReturn();
+
+        assertMatch("Vote is dump", result.getResponse().getContentAsString().replaceAll("\\\"", ""));
+    }
+
+    @Test
+    void startVoting() throws Exception{
+        MvcResult result = mockMvc.perform(get(REST_URL_TEST + "start"))
+                .andExpect(status().isOk())
+                .andDo(print())
+                .andExpect(content().contentTypeCompatibleWith(MediaType.APPLICATION_JSON))
+                .andReturn();
+
+        assertMatch("Start vote", result.getResponse().getContentAsString().replaceAll("\\\"", ""));
+
     }
 }

@@ -43,7 +43,7 @@ public class RestaurantTestData {
     public static void assertMatch(Iterable<Restaurant> actual, Iterable<Restaurant> expected) {
         assertThat(actual).usingElementComparatorIgnoringFields("user").isEqualTo(expected);
     }
-    public static ResultMatcher contentJson(Restaurant... expected) {
-        return content().json(writeIgnoreProps(Arrays.asList(expected), "registered"));
+    public static ResultMatcher contentJsonArray(Restaurant... expected) {
+        return content().json(writeIgnoreProps(Arrays.asList(expected)));
     }
 }

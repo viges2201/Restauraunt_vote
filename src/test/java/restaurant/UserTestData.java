@@ -19,6 +19,10 @@ public class UserTestData {
     public static final User USER = new User(USER_ID, "User", "user@yandex.ru", "password", Role.ROLE_USER);
     public static final User ADMIN = new User(ADMIN_ID, "Admin", "admin@gmail.com", "admin", Role.ROLE_ADMIN, Role.ROLE_USER);
 
+    public static void assertMatch(String actual, String expected) {
+            assertThat(actual).isEqualTo(expected);
+    }
+
     public static void assertMatch(User actual, User expected) {
         assertThat(actual).isEqualToIgnoringGivenFields(expected, "restaurants");
     }
@@ -32,10 +36,10 @@ public class UserTestData {
     }
 
     public static ResultMatcher contentJson(User... expected) {
-        return content().json(writeIgnoreProps(Arrays.asList(expected), "registered"));
+        return content().json(writeIgnoreProps(Arrays.asList(expected)));
     }
 
     public static ResultMatcher contentJson(User expected) {
-        return content().json(writeIgnoreProps(expected, "registered"));
+        return content().json(writeIgnoreProps(expected));
     }
 }

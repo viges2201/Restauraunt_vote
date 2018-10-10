@@ -14,6 +14,9 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+import static restaurant.RestaurantTestData.USER_1_RESTAURANT_ID;
+import static restaurant.RestaurantTestData.USER_RESTAURANT_4;
+import static restaurant.TestUtil.contentJsonUtil;
 import static restaurant.UserTestData.*;
 import static restaurant.web.user.ProfileRestController.REST_URL;
 
@@ -38,5 +41,14 @@ class ProfileRestControllerTest extends AbstractControllerTest {
                 .andExpect(status().isOk());
 
         assertMatch(new User(userService.getByEmail("newemail@ya.ru")), updated);
+    }
+
+    @Test
+    void testVote() throws Exception {
+        TestUtil.print(mockMvc.perform(get(REST_URL + "/" + USER_ID + "/restaurant/" + (USER_1_RESTAURANT_ID + 3)))
+                .andExpect(status().isOk())
+                .andDo(print())
+                .andExpect(content().contentTypeCompatibleWith(MediaType.APPLICATION_JSON))
+                .andExpect(contentJsonUtil(USER_RESTAURANT_4)));
     }
 }

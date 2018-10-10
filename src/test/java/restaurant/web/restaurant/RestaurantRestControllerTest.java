@@ -10,13 +10,12 @@ import restaurant.service.RestaurantService;
 import restaurant.web.AbstractControllerTest;
 import restaurant.web.json.JsonUtil;
 
-import java.util.Arrays;
-
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 import static restaurant.RestaurantTestData.*;
+import static restaurant.TestUtil.contentJsonUtil;
 import static restaurant.TestUtil.readFromJson;
 import static restaurant.model.AbstractBaseEntity.START_SEQ;
 
@@ -27,14 +26,14 @@ class RestaurantRestControllerTest extends AbstractControllerTest {
     @Autowired
     private RestaurantService service;
 
-    /*@Test
+    @Test
     void testGet() throws Exception {
         mockMvc.perform(get(REST_URL + USER_1_RESTAURANT_ID ))
                 .andExpect(status().isOk())
                 .andDo(print())
                 .andExpect(content().contentTypeCompatibleWith(MediaType.APPLICATION_JSON))
-                .andExpect(contentJson(USER_RESTAURANT_1));
-    }*/
+                .andExpect(contentJsonUtil(USER_RESTAURANT_1));
+    }
 
     @Test
     void testDelete() throws Exception {
@@ -75,7 +74,7 @@ class RestaurantRestControllerTest extends AbstractControllerTest {
                 .andExpect(status().isOk())
                 .andDo(print())
                 .andExpect(content().contentTypeCompatibleWith(MediaType.APPLICATION_JSON))
-                .andExpect(contentJson(USER_RESTAURANT_1, USER_RESTAURANT_2, USER_RESTAURANT_3, USER_RESTAURANT_4,ADMIN_2_RESTAURANT_1,ADMIN_2_RESTAURANT_2));
+                .andExpect(contentJsonArray(USER_RESTAURANT_1, USER_RESTAURANT_2, USER_RESTAURANT_3, USER_RESTAURANT_4,ADMIN_2_RESTAURANT_1,ADMIN_2_RESTAURANT_2));
     }
 
 

@@ -24,11 +24,11 @@ public class TestUtil {
         return JsonUtil.readValue(getContent(action), clazz);
     }
 
-    public static <T> ResultMatcher contentJson(T expected) {
+    public static <T> ResultMatcher contentJsonUtil(T expected) {
         return content().json(writeValue(expected));
     }
 
     public static <T> ResultMatcher contentJsonArray(T... expected) {
-        return contentJson(expected);
+        return contentJsonUtil(expected);
     }
 }
