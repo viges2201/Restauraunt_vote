@@ -40,7 +40,7 @@
  - Voting (get) <pre>http://localhost:8080/rest/profile/100000/restaurant/100005
  - Update profile (put) <pre>http://localhost:8080/rest/profile
  {
-     "id": 100009,
+     "id": 100008,
          "name": "newUserProfile",
          "email": "newUserProfile@gmail.com",
          "password": "newUser",
